@@ -1,6 +1,7 @@
 \documentclass{xduugtrans}
 % TODO: 封面需要修改成与翻译任务相匹配的封面
 \xdusetup{
+    style = {bib-backend = bibtex},
     info = {
         title = {Hawk: 基于密码学和 \\ 智能合约隐私保护的区块链模型},
         department = {计算机科学与技术学院},
@@ -22,7 +23,72 @@
 \begin{document}
 \frontmatter
 \mainmatter
-\chapter{欢迎}
-使用\LaTeX{}！
+\chapter{概述}
+比特币\cite{ref1} 和山寨币等去中心化加密货币迅速普及，并经常被引用作为对我们未来的一瞥。这些新兴的加密货币系统建立在一种新颖的区块链技术之上，其中矿工运行分布式共识，其安全性得到保证，如果没有对手使用大部分计算（或其他形式的）资源。术语“区块链”和“矿工”因此经常互换使用。
+
+像比特币这样的区块链不仅在数据流上达成共识，而且在涉及这些数据的计算上也达成共识。具体来说，在比特币中，数据包括用户提出的转账交易，计算涉及交易验证和更新称为未使用交易输出集的数据结构，不准确地说，它跟踪用户的账户余额。新兴的加密货币系统，如以太坊采用了在区块链上运行任意用户定义程序的想法，从而创建了一个富有表现力的去中心化智能合约系统。
+
+% 参考文献，此处以 MLA 引用格式为例
+\begin{thebibliography}{99}  
+    \bibitem{ref1} [online] Available: http://koinify.com.
+    \bibitem{ref2} Amazon ec2 pricing, [online] Available: http://aws.amazon.com/ec2/pricing/.
+    \bibitem{ref3} Augur, [online] Available: http://www.augur.net/.
+    \bibitem{ref4} bitoinj, [online] Available: https://bitcoinj.github.io/.
+    \bibitem{ref5} "The rise and rise of bitcoin", Documentary.
+    \bibitem{ref6} Skuchain, [online] Available: http://www.skuchain.com/.
+    \bibitem{ref7} M. Andrychowicz, S. Dziembowski, D. Malinowski and L. Mazurek, "Secure Multiparty Computations on Bitcoin", S\&P, 2013.
+    \bibitem{ref8} G. Asharov, A. Beimel, N. Makriyannis and E. Omri, "Complete characterization of fairness in secure two-party computation of boolean functions", TCC, 2015.
+    \bibitem{ref9} M. Bagnoli and B. L. Lipman, "Provision of public goods: Fully implementing the core through private contributions", The Review of Economic Studies, 1989.
+    \bibitem{ref10} R. Beaulieu, D. Shors, J. Smith, S. Treatman-Clark, B. Weeks and L. Wingers, The simon and speck families of lightweight block ciphers, [online] Available: http://ia.cr/2013/404.
+    \bibitem{ref11} E. Ben-Sasson, A. Chiesa, C. Garman, M. Green, I. Miers, E. Tromer, et al., "Zerocash: Decentralized anonymous payments from Bitcoin", S\&P, 2014.
+    \bibitem{ref12} E. Ben-Sasson, A. Chiesa, D. Genkin, E. Tromer and M. Virza, "Snarks for C: verifying program executions succinctly and in zero knowledge", CRYPTO, 2013.
+    \bibitem{ref13} E. Ben-Sasson, A. Chiesa, M. Green, E. Tromer and M. Virza, "Secure sampling of public parameters for succinct zero knowledge proofs", S\&P, 2015.
+    \bibitem{ref14} E. Ben-Sasson, A. Chiesa, E. Tromer and M. Virza, "Scalable zero knowledge via cycles of elliptic curves", CRYPTO, 2014.
+    \bibitem{ref15} E. Ben-Sasson, A. Chiesa, E. Tromer and M. Virza, "Succinct noninteractive zero knowledge for a von neumann architecture", Security, 2014.
+    \bibitem{ref16} E. Ben-Sasson and M. Sudan, "Short pcps with polylog query complexity", SIAM J. Comput., 2008.
+    \bibitem{ref17} I. Bentov and R. Kumaresan, "How to Use Bitcoin to Design Fair Protocols", CRYPTO, 2014.
+    \bibitem{ref18} N. Bitansky, R. Canetti, A. Chiesa and E. Tromer, "Recursive composition and bootstrapping for snarks and proof-carrying data", STOC, 2013.
+    \bibitem{ref19} D. Bogdanov, S. Laur and J. Willemson, "Sharemind: A Framework for Fast Privacy-Preserving Computations", ESORICS, 2008.
+    \bibitem{ref20} J. Bonneau, A. Miller, J. Clark, A. Narayanan, J. A. Kroll and E. W. Felten, "Research Perspectives and Challenges for Bitcoin and Cryptocurrencies", S\&P, 2015.
+    \bibitem{ref21} R. Canetti, "Universally composable security: A new paradigm for cryptographic protocols", FOCS, 2001.
+    \bibitem{ref22} R. Canetti, "Universally composable signature certification and authentication", CSF, 2004.
+    \bibitem{ref23} R. Canetti, Y. Dodis, R. Pass and S. Walfish, "Universally composable security with global setup", TCC, 2007.
+    \bibitem{ref24} R. Cleve, "Limits on the security of coin flips when half the processors are faulty", STOC, 1986.
+    \bibitem{ref25} C. Costello, C. Fournet, J. Howell, M. Kohlweiss, B. Kreuter, M. Naehrig, et al., "Geppetto: Versatile verifiable computation", S \& P, 2015.
+    \bibitem{ref26} G. Danezis, C. Fournet, M. Kohlweiss and B. Parno, "Pinocchio Coin: building Zerocoin from a succinct pairing-based proof system", PETShop, 2013.
+    \bibitem{ref27} C. Decker and R. Wattenhofer, "Bitcoin transaction malleability and mtgox" in ESORICS, Springer, 2014.
+    \bibitem{ref28} A. K. R. Dermody and O. Slama, Counterparty announcement, [online] Available: https://bitcointalk.org/index.php?topic=395761.0.
+    \bibitem{ref29} I. Eyal and E. G. Sirer, "Majority is not enough: Bitcoin mining is vulnerable", FC, 2014.
+    \bibitem{ref30} C. Fournet, M. Kohlweiss, G. Danezis and Z. Luo, "Zql: A compiler for privacy-preserving data processing", USENIX Security, 2013.
+    \bibitem{ref31} M. Fredrikson and B. Livshits, "Zø: An optimizing distributing zero-knowledge compiler", USENIX Security, 2014.
+    \bibitem{ref32} J. A. Garay, A. Kiayias and N. Leonardos, "The bitcoin backbone protocol: Analysis and applications", Eurocrypt, 2015.
+    \bibitem{ref33} R. Gennaro, C. Gentry, B. Parno and M. Raykova, "Quadratic span programs and succinct NIZKs without PCPs", Eurocrypt, 2013.
+    \bibitem{ref34} E. Heilman, A. Kendler, A. Zohar and S. Goldberg, "Eclipse attacks on bitcoin's peer-to-peer network", USENIX Security, 2015.
+    \bibitem{ref35} A. Juels, A. Kosba and E. Shi, "The ring of gyges: Using smart contracts for crime", Manuscript, 2015.
+    \bibitem{ref36} A. Kiayias, H.-S. Zhou and V. Zikas, Fair and robust multi-party computation using a global transaction ledger, [online] Available: http://ia.cr/2015/574.
+    \bibitem{ref37} A. Kosba, A. Miller, E. Shi, Z. Wen and C. Papamanthou, Hawk: The blockchain model of cryptography and privacy-preserving smart contracts, [online] Available: http://ia.cr/2015/675.
+    \bibitem{ref38} A. Kosba, Z. Zhao, A. Miller, H. Chan, C. Papamanthou, R. Pass, et al., How to use snarks in universally composable protocols, 2015, [online] Available: https://eprint.iacr.org/2015/1093.
+    \bibitem{ref39} B. Kreuter, B. Mood, A. Shelat and K. Butler, "PCF: A portable circuit format for scalable two-party secure computation", Security, 2013.
+    \bibitem{ref40} R. Kumaresan and I. Bentov, "How to Use Bitcoin to Incentivize Correct Computations", CCS, 2014.
+    \bibitem{ref41} C. Liu, X. S. Wang, K. Nayak, Y. Huang and E. Shi, "ObliVM: A programming framework for secure computation", S\&P, 2015.
+    \bibitem{ref42} S. Meiklejohn, M. Pomarole, G. Jordan, K. Levchenko, D. McCoy, G. M. Voelker, et al., "A fistful of bitcoins: characterizing payments among men with no names", IMC, 2013.
+    \bibitem{ref43} I. Miers, C. Garman, M. Green and A. D. Rubin, "Zerocoin: Anonymous Distributed E-Cash from Bitcoin", S\&P, 2013.
+    \bibitem{ref44} A. Miller, M. Hicks, J. Katz and E. Shi, "Authenticated data structures generically", POPL, 2014.
+    \bibitem{ref45} A. Miller and J. J. LaViola, "Anonymous Byzantine Consensus from Moderately-Hard Puzzles: A Model for Bitcoin", 2014.
+    \bibitem{ref46} M. S. Miller, C. Morningstar and B. Frantz, "Capability-based financial instruments", FC, 2001.
+    \bibitem{ref47} N. Mouha, B. Mennink, A. Van, D. Watanabe, B. Preneel and I. Verbauwhede, "Chaskey: An efficient mac algorithm for 32-bit microcontrollers" in Selected Areas in Cryptography-SAC 2014, Springer, pp. 306-323, 2014.
+    \bibitem{ref48} S. Nakamoto, Bitcoin: A Peer-to-Peer Electronic Cash System, 2009, [online] Available: http://bitcoin.org/bitcoin.pdf.
+    \bibitem{ref49} B. Parno, C. Gentry, J. Howell and M. Raykova, "Pinocchio: Nearly practical verifiable computation", S\&P, 2013.
+    \bibitem{ref50} R. Pass and Abhi Shelat, "Micropayments for peer-to-peer currencies", CCS, 2015.
+    \bibitem{ref51} A. Rastogi, M. A. Hammer and M. Hicks, "Wysteria: A programming language for generic mixed-mode multiparty computations", S\&P, 2014.
+    \bibitem{ref52} D. Ron and A. Shamir, "Quantitative Analysis of the Full Bitcoin Transaction Graph", FC, 2013.
+    \bibitem{ref53} N. Szabo, "Formalizing and securing relationships on public networks", 1997.
+    \bibitem{ref54} N. van Saberhagen, Cryptonote v 2.0, 2013, [online] Available: https://goo.gl/kfojVZ.
+    \bibitem{ref55} W. Vickrey, "Counterspeculation auctions and competitive sealed tenders", Journal of finance, 1961.
+    \bibitem{ref56} R. S. Wahby, S. T. V. Setty, Z. Ren, A. J. Blumberg and M. Walfish, "Efficient RAM and control flow in verifiable outsourced computation", NDSS, 2015.
+    \bibitem{ref57} G. Wood, Ethereum: A secure decentralized transaction ledger, [online] Available: http://gavwood.com/paper.pdf.
+    \bibitem{ref58} L. Zheng, S. Chong, A. C. Myers and S. Zdancewic, "Using replication and partitioning to build secure distributed systems", S\&P, 2003.
+    \bibitem{ref59} G. Zyskind, O. Nathan and A. Pentland, Enigma: Decentralized computation platform with guaranteed privacy.
+\end{thebibliography}
 \backmatter
 \end{document}
