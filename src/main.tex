@@ -1,5 +1,8 @@
 \documentclass{xduugtrans}
 \graphicspath{{figures}}
+% 调整figure空白位置
+\renewcommand{\topfraction}{.8}
+\renewcommand{\floatpagefraction}{.8}
 % TODO: 封面需要修改成与翻译任务相匹配的封面
 \xdusetup{
     style = {
@@ -337,7 +340,7 @@ $IdealP_{hawk}$指定以下隐私保证。当一个诚实的一方 P 冻结钱�
 
 \subsection{定时和终止}
 
-我们的理想程序$IdealP_{hawk}$要求冻结操作在时间$T_1$前完成，而计算操作在时间$T_2$前完成。如果一个用户冻结了硬币，但在$T_2$时间之前没有打开，我们的理想程序$IdealP_{hawk}$就会把$(in_i,val_i) := (0,⊥)$，而用户$P_i$基本上就放弃了它的冻结硬币。管理者的中止行为不在$IdealP_{hawk}$内部处理，而是由合约的公共部分处理。
+我们的理想程序$IdealP_{hawk}$要求冻结操作在时间$T_1$前完成，而计算操作在时间$T_2$前完成。如果一个用户冻结了硬币，但在$T_2$时间之前没有打开，我们的理想程序$IdealP_{hawk}$就会把$(in_i,val_i) := (0, \perp )$，而用户$P_i$基本上就放弃了它的冻结硬币。管理者的中止行为不在$IdealP_{hawk}$内部处理，而是由合约的公共部分处理。
 
 \subsection{简化假设}
 
@@ -345,6 +348,47 @@ $IdealP_{hawk}$指定以下隐私保证。当一个诚实的一方 P 冻结钱�
 
 我们做的其他简化假设包括以下内容。我们的基本$IdealP_{hawk}$假设参与合约的假名集合以及超时$T_1$和$T_2$在程序中是硬编码的。
 
+\chapter{加密协议}
+
+我们的协议分为两部分：
+
+\begin{enumerate}
+    \item 私人现金部分，实现用户之间的直接资金转移；
+    \item \textbf{Hawk}特定部分，将交易隐私与可编程逻辑结合起来。
+\end{enumerate}
+
+图\ref{fig5}和图\ref{fig6}中给出了正式的协议描述。下面我们解释高层次的直观感受。
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.7\linewidth]{5}
+    \caption{$UserP_{cash}$ 建设}
+    \label{fig5}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.7\linewidth]{6}
+    \caption{$Blackchain_{hawk}$ 和 $UserP_{hawk}$ 建设}
+    \label{fig6}
+\end{figure}
+
+\section{热身: 私人现金和资金转移}
+
+我们的结构采用了一个类似于 Zerocash 的协议来实现私人现金和私人货币的转移。为了完整起见，我们在下面给出一个简单的解释，我们主要关注技术上更有趣的倒账操作。区块链程序 $Blockchain_{cash}$ 维护着一组私人coins。每个私有币的格式是:
+
+\begin{equation}
+    (\mathcal{P},\mathsf{coin}:=\mathsf{Comm}_{s}(\$\mathsf{val}))
+\end{equation}
+
+其中，$\mathcal{P}$表示一方的假名，$\mathsf{coin}$指在随机性$s$下的硬币价值$\$\mathsf{val}$。
+
+现在，花钱的人计算一个零知识证明，以表明输出硬币的构造是适当的，其中正确性包括以下方面:
+
+\begin{enumerate}
+    \item \textit{正在花费的硬币的存在性}。正在花费的硬币$（P,coin_1）$和$（P,coin_2）$确实是私人硬币池的一部分。我们注意到，这里的零知识属性允许花费者隐藏它所花费的硬币--这是交易隐私背后的关键想法。为了有效地证明这一点，$Blockchain_{cash}$ 在私有池币上维护了一个Merkle树$textbf{MT}$。集合中的成员资格可以通过与根哈希值一致的Merkle分支来证明，而这是在零知识中完成的。
+    \item \textit{不存在双花攻击}。每个硬币 $(P,coin)$ 都有一个密码学上唯一的序列号sn，可以作为 P 的秘钥和硬币的伪随机函数计算出来。要倒出一个硬币，它的序列号sn必须被公开，并给出一个零知识证明来证明sn的正确性。$Blockchain_{cash}$检查是否有sn被使用两次。
+\end{enumerate}
 
 % 参考文献
 \begin{thebibliography}{99}  
